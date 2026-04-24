@@ -517,10 +517,10 @@
       table.tracker .net-row td { background: #1a4a8a !important; color: #fff !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
       table.tracker .input-row td { background: #fafafa !important; border-bottom: 1px solid #e0e0e0 !important; }
       .cta-footer { display: none; }
-      .cover-image { break-after: page; max-height: none; }
-      .cover-image img { max-height: none; width: 100%; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-      .cover-caption { color: #555 !important; background: #fff !important; break-after: page; }
-      .section { break-before: page; }
+      .cover-image { max-height: 280px; }
+      .cover-image img { max-height: 280px; width: 100%; object-fit: cover; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .cover-caption { color: #555 !important; background: #fff !important; }
+      .section + .section { break-before: page; }
       .form-section { break-before: page; }
       .resource-category { break-inside: avoid; }
       @page { size: letter; margin: 0.75in; }
