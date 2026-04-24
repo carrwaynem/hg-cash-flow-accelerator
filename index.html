@@ -451,6 +451,32 @@
     .download-btn:hover { background: #0f6fd6; }
     .download-btn svg { width: 15px; height: 15px; fill: none; stroke: #fff; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 
+    .cover-image {
+      width: 100%;
+      overflow: hidden;
+      background: var(--dark);
+      position: relative;
+    }
+    .cover-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+      max-height: 520px;
+      object-fit: cover;
+      object-position: center;
+    }
+    .cover-caption {
+      text-align: center;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      padding: 14px 0 8px;
+      background: var(--dark);
+    }
+
     @media (max-width: 680px) {
       .header { padding: 18px 20px; flex-direction: column; align-items: flex-start; gap: 12px; }
       .logo-wrap { width: 160px; height: 88px; }
@@ -493,6 +519,10 @@
       table.tracker .net-row td { background: #1a4a8a !important; color: #fff !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
       table.tracker .input-row td { background: #fafafa !important; border-bottom: 1px solid #e0e0e0 !important; }
       .cta-footer { display: none; }
+      .cover-image { break-after: page; max-height: none; }
+      .cover-image img { max-height: none; width: 100%; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .cover-caption { color: #555 !important; background: #fff !important; }
+      .hero { break-before: avoid; }
       .section { break-before: page; }
       .section:first-of-type { break-before: avoid; }
       .form-section { break-before: page; }
@@ -517,6 +547,11 @@
       <p>Your Guide to Financial Freedom, Stability &amp; Wealth</p>
     </div>
   </header>
+
+  <div class="cover-image">
+    <img src="cash-flow-cover-web.jpg" alt="Every dollar has a destination">
+  </div>
+  <div class="cover-caption">Every Dollar Has a Destination</div>
 
   <section class="hero">
     <h2>Every dollar has a destination. Make sure yours is building toward freedom.</h2>
