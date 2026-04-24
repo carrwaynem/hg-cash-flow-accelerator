@@ -428,6 +428,29 @@
     }
     .contact-info a { color: var(--primary); text-decoration: none; }
 
+    .download-btn {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: var(--cta);
+      color: #fff;
+      border: none;
+      padding: 10px 22px;
+      border-radius: 6px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: 13px;
+      cursor: pointer;
+      z-index: 1000;
+      letter-spacing: 0.03em;
+      box-shadow: 0 2px 14px rgba(24,139,246,0.35);
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+    .download-btn:hover { background: #0f6fd6; }
+    .download-btn svg { width: 15px; height: 15px; fill: none; stroke: #fff; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
     @media (max-width: 680px) {
       .header { padding: 18px 20px; flex-direction: column; align-items: flex-start; gap: 12px; }
       .logo-wrap { width: 160px; height: 88px; }
@@ -443,29 +466,47 @@
     }
 
     @media print {
+      .download-btn { display: none !important; }
       body { background: #fff !important; color: #1a1a1a !important; }
-      .header, .hero, .section, .appendix { background: #fff !important; border-color: #ccc !important; }
-      .card, .budget-step, .ibc-box, .do-card, .dont-card { background: #f5f5f5 !important; border-color: #ccc !important; }
-      .section-title, .card-title, .form-title, .ibc-box h3 { color: #1a1a1a !important; }
+      .header { background: #fff !important; border-bottom: 2px solid #2a5a8a !important; padding: 20px 32px; }
+      .hero { background: #f0f4f8 !important; color: #1a1a1a !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .hero h2 { color: #1a1a1a !important; }
+      .hero p { color: #333 !important; }
+      .section, .appendix { background: #fff !important; border-color: #ccc !important; }
+      .card, .budget-step, .ibc-box, .do-card, .dont-card { background: #f5f5f5 !important; border-color: #ccc !important; break-inside: avoid; }
+      .ibc-box { background: #eef4fb !important; border-color: #2a5a8a !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .ibc-box .label { background: #2a5a8a !important; color: #fff !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .ibc-box h3 { color: #1a1a1a !important; }
+      .ibc-box p, .ibc-box li { color: #333 !important; }
+      .section-title, .card-title, .form-title { color: #1a1a1a !important; }
       .section-intro, .card p, .card li, .budget-step p, .budget-step li { color: #333 !important; }
-      .section-label, .resource-category h3, .affirmation-group h4 { color: #2a5a8a !important; }
+      .section-label, .resource-category h3, .affirmation-group h4 { color: #2a5a8a !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
       .do-card h4 { color: #1a7a1a !important; }
       .dont-card h4 { color: #b91c1c !important; }
       .do-card li, .dont-card li { color: #333 !important; }
-      .do-card { background: #f0faf0 !important; border-color: #ccc !important; }
-      .dont-card { background: #fdf0f0 !important; border-color: #ccc !important; }
+      .do-card { background: #f0faf0 !important; border-left: 3px solid #1a7a1a !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .dont-card { background: #fdf0f0 !important; border-left: 3px solid #b91c1c !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
       table.tracker th { background: #2a5a8a !important; color: #fff !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
       table.tracker td { background: #fff !important; color: #1a1a1a !important; }
-      table.tracker .category-header td { background: #e8e8e8 !important; color: #2a5a8a !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      table.tracker .category-header td { background: #e8e8e8 !important; color: #2a5a8a !important; font-weight: 700; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
       table.tracker .total-row td { background: #2a5a8a !important; color: #fff !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
       table.tracker .net-row td { background: #1a4a8a !important; color: #fff !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-      table.tracker .input-row td { background: #fafafa !important; }
+      table.tracker .input-row td { background: #fafafa !important; border-bottom: 1px solid #e0e0e0 !important; }
       .cta-footer { display: none; }
+      .section { break-before: page; }
+      .section:first-of-type { break-before: avoid; }
+      .form-section { break-before: page; }
+      .resource-category { break-inside: avoid; }
       @page { size: letter; margin: 0.75in; }
     }
   </style>
 </head>
 <body>
+
+  <button class="download-btn" onclick="window.print()">
+    <svg viewBox="0 0 24 24"><polyline points="8 17 12 21 16 17"></polyline><line x1="12" y1="12" x2="12" y2="21"></line><path d="M20.88 18.09A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.29"></path></svg>
+    Download PDF
+  </button>
 
   <header class="header">
     <div class="logo-wrap">
